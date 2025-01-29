@@ -1,0 +1,507 @@
+[
+    {
+        "block": "1",
+        "lot": ["1"],
+        "homeOwner": "ESTARDO, JUNNY"
+    },
+    {
+        "block": "1",
+        "lot": ["2"],
+        "homeOwner": "YU, BENJIE"
+    },
+    {
+        "block": "1",
+        "lot": ["3"],
+        "homeOwner": "TEO, VIVIAN"
+    },
+    {
+        "block": "1",
+        "lot": ["4"],
+        "homeOwner": "BETARMOS, LOLITA  (LOLITA GESTA)"
+    },
+    {
+        "block": "1",
+        "lot": ["5"],
+        "homeOwner": "CO, ERNELL"
+    },
+    {
+        "block": "1",
+        "lot": ["6"],
+        "homeOwner": "PARADERO, NESTOR "
+    },
+    {
+        "block": "1",
+        "lot": ["7"],
+        "homeOwner": "GERONA, CHEQUITHELMA"
+    },
+    {
+        "block": "1",
+        "lot": ["8"],
+        "homeOwner": "ALLEGO, CHERRY "
+    },
+    {
+        "block": "1",
+        "lot": ["9"],
+        "homeOwner": "OTAGAN, JENNETH"
+    },
+    {
+        "block": "1",
+        "lot": ["10"],
+        "homeOwner": "PAGUTE, RAYMARK "
+    },
+    {
+        "block": "1",
+        "lot": ["11"],
+        "homeOwner": "BENALOGA, FEEL"
+    },
+    {
+        "block": "1",
+        "lot": ["12"],
+        "homeOwner": "ACAD, ARJHUN"
+    },
+    {
+        "block": "1",
+        "lot": ["13"],
+        "homeOwner": "CLAMARES, ELUNA"
+    },
+    {
+        "block": "1",
+        "lot": ["14"],
+        "homeOwner": "PAQUIBOT, MICHAEL ANGELO (GEVER JANE GAMOT)"
+    },
+    {
+        "block": "1",
+        "lot": ["15", "16", "17"],
+        "homeOwner": "CO, ERNELL "
+    },
+    {
+        "block": "1",
+        "lot": ["18", "19"],
+        "homeOwner": "CHUA, MARITES "
+    },
+    {
+        "block": "1",
+        "lot": ["20", "21"],
+        "homeOwner": "DESUASIDO, MIRIAM/DANTE H. "
+    },
+    {
+        "block": "1",
+        "lot": ["22", "23"],
+        "homeOwner": "GOHETIA, ROGER JR."
+    },
+    {
+        "block": "1",
+        "lot": ["24"],
+        "homeOwner": "TANIIKE, ROMUALDA (RONIE ARANDING)"
+    },
+    {
+        "block": "1",
+        "lot": ["25"],
+        "homeOwner": "ONGJUNCO, JANICE"
+    },
+    {
+        "block": "1",
+        "lot": ["26"],
+        "homeOwner": "QURIONG, MARIE ANTONETTE (RUBEN)"
+    },
+    {
+        "block": "1",
+        "lot": ["27"],
+        "homeOwner": "DEL FIERRO, VICTOR JR."
+    },
+    {
+        "block": "1",
+        "lot": ["28", "29"],
+        "homeOwner": "DURANO, RICHIE BRYAN "
+    },
+    {
+        "block": "1",
+        "lot": ["30", "31"],
+        "homeOwner": "CORCIEGA, JOY (MICHELLE )"
+    },
+    {
+        "block": "1",
+        "lot": ["32"],
+        "homeOwner": "TUDTUD, BRENDA (LIZA RINGIA)"
+    },
+    {
+        "block": "1",
+        "lot": ["33"],
+        "homeOwner": "TY, FELIX JOSEPH (EMILY)"
+    },
+    {
+        "block": "1",
+        "lot": ["34", "35"],
+        "homeOwner": "ARONG, RENYEN/EDDIELYNNE "
+    },
+    {
+        "block": "1",
+        "lot": ["36"],
+        "homeOwner": "DELA CERNA, DHUNVE "
+    },
+    {
+        "block": "1",
+        "lot": ["37"],
+        "homeOwner": "DIOCAMPO, MARIA LORY LEE "
+    },
+    {
+        "block": "1",
+        "lot": ["38"],
+        "homeOwner": "LISTON, LESTER "
+    },
+    {
+        "block": "1",
+        "lot": ["39"],
+        "homeOwner": "PANAO, ROGELIO ADROGEL"
+    },
+    {
+        "block": "1",
+        "lot": ["40"],
+        "homeOwner": "ROSALES, EMMA "
+    },
+    {
+        "block": "1",
+        "lot": ["41"],
+        "homeOwner": "TABASA, EDITHA "
+    },
+    {
+        "block": "1",
+        "lot": ["42"],
+        "homeOwner": "LACERNA, JILLIEN MARIE (MERCY)"
+    },
+    {
+        "block": "2",
+        "lot": ["1"],
+        "homeOwner": "LI, LADY MANNYLEN "
+    },
+    {
+        "block": "2",
+        "lot": ["2"],
+        "homeOwner": "WILLIAMS, MINERVA "
+    },
+    {
+        "block": "2",
+        "lot": ["3"],
+        "homeOwner": "OGLEND, GLENN"
+    },
+    {
+        "block": "2",
+        "lot": ["4"],
+        "homeOwner": "EBARLE, KAREN IVY (CHRISTINE MARIE MEDRANO)"
+    },
+    {
+        "block": "2",
+        "lot": ["5"],
+        "homeOwner": "CANETE, IGNATIUS MARIAE (HUANG GUISONG)"
+    },
+    {
+        "block": "2",
+        "lot": ["6"],
+        "homeOwner": "NAS, EVELYN (ELVIE ATIZON)"
+    },
+    {
+        "block": "2",
+        "lot": ["7"],
+        "homeOwner": "ALEGIOJO, EUGENIO JR./JULIE "
+    },
+    {
+        "block": "2",
+        "lot": ["8"],
+        "homeOwner": "BOUMANS, SALVALYN "
+    },
+    {
+        "block": "2",
+        "lot": ["9"],
+        "homeOwner": "INTO, ROGER / LEONORA "
+    },
+    {
+        "block": "2",
+        "lot": ["10"],
+        "homeOwner": "DIMPAS, MERCY (JOSEFINA SORELA)"
+    },
+    {
+        "block": "2",
+        "lot": ["11"],
+        "homeOwner": "GUINITA, MARLYN (GINA LLEWELYN)"
+    },
+    {
+        "block": "2",
+        "lot": ["12"],
+        "homeOwner": "DURANO, BRYAN PAUL "
+    },
+    {
+        "block": "2",
+        "lot": ["13"],
+        "homeOwner": "BULOTANO, JULIE/BONIFACIO "
+    },
+    {
+        "block": "2",
+        "lot": ["14"],
+        "homeOwner": "PEREZ, EIZZEL MARK/MARILYN "
+    },
+    {
+        "block": "2",
+        "lot": ["15"],
+        "homeOwner": "BAYLOSIS, OLIVER (TAYLOR, MARINA)"
+    },
+    {
+        "block": "2",
+        "lot": ["16"],
+        "homeOwner": "ANUB, JOCELYN (ROLANDO CAYME)"
+    },
+    {
+        "block": "2",
+        "lot": ["17"],
+        "homeOwner": "REGIS, PERNOLI ANTHONI/MAE PEARL"
+    },
+    {
+        "block": "2",
+        "lot": ["18"],
+        "homeOwner": "NICART, LONA "
+    },
+    {
+        "block": "2",
+        "lot": ["19"],
+        "homeOwner": "POLOYAPOY, FERONDE "
+    },
+    {
+        "block": "2",
+        "lot": ["20"],
+        "homeOwner": "EMPERADO, LLOYD/REZYL "
+    },
+    {
+        "block": "2",
+        "lot": ["21"],
+        "homeOwner": "MUNDALA, DAVY"
+    },
+    {
+        "block": "2",
+        "lot": ["22"],
+        "homeOwner": "TALAID, FRUTO JR."
+    },
+    {
+        "block": "2",
+        "lot": ["23"],
+        "homeOwner": "BATOY, IVY AMORES "
+    },
+    {
+        "block": "2",
+        "lot": ["24"],
+        "homeOwner": "CUBERO, FRITZI "
+    },
+    {
+        "block": "2",
+        "lot": ["25"],
+        "homeOwner": "NAS, EVELYN (ELVIE ATIZON)"
+    },
+    {
+        "block": "2",
+        "lot": ["26"],
+        "homeOwner": "SUAN, WEI "
+    },
+    {
+        "block": "3",
+        "lot": ["1"],
+        "homeOwner": "OMPAD, RONNIE (ANNELYN ZABALA-APORDO)"
+    },
+    {
+        "block": "3",
+        "lot": ["2"],
+        "homeOwner": "ZABALA, CHARLOTTE "
+    },
+    {
+        "block": "3",
+        "lot": ["3"],
+        "homeOwner": "ARONG, RUBY "
+    },
+    {
+        "block": "3",
+        "lot": ["4"],
+        "homeOwner": "MADRONA, CHARLENE "
+    },
+    {
+        "block": "3",
+        "lot": ["5"],
+        "homeOwner": "FERRER, CHRISTIAN DWIGHT "
+    },
+    {
+        "block": "3",
+        "lot": ["6"],
+        "homeOwner": "CHAPMAN, MARIE MAE "
+    },
+    {
+        "block": "3",
+        "lot": ["7"],
+        "homeOwner": "REVELLIZA, JUNO JAME/JOVELYN "
+    },
+    {
+        "block": "3",
+        "lot": ["8"],
+        "homeOwner": "ELLIOT, DERRICK/CHRISTINA "
+    },
+    {
+        "block": "3",
+        "lot": ["9"],
+        "homeOwner": "NEGRE, PAULINO JR.(JEAN GRACE GAUIRAN)"
+    },
+    {
+        "block": "3",
+        "lot": ["10"],
+        "homeOwner": "GONOY, ARNIEL/ROSE "
+    },
+    {
+        "block": "3",
+        "lot": ["11"],
+        "homeOwner": "VERGARA, RUBELLIE"
+    },
+    {
+        "block": "3",
+        "lot": ["12"],
+        "homeOwner": "ARMEDILLA, NINA ROCHINNI"
+    },
+    {
+        "block": "3",
+        "lot": ["13"],
+        "homeOwner": "ARMEDILLA, RYAN PAUL"
+    },
+    {
+        "block": "3",
+        "lot": ["14"],
+        "homeOwner": "BUITIZON, ROMEO RODJIL (IRAH)"
+    },
+    {
+        "block": "3",
+        "lot": ["15"],
+        "homeOwner": "QUINALAYO, EUGENE (PAOLO)"
+    },
+    {
+        "block": "3",
+        "lot": ["16"],
+        "homeOwner": "DE LEON, RAUL DOUGLAS"
+    },
+    {
+        "block": "3",
+        "lot": ["17"],
+        "homeOwner": "DE JONG, RAQUEL "
+    },
+    {
+        "block": "3",
+        "lot": ["18"],
+        "homeOwner": "LACERNA, HAZEL "
+    },
+    {
+        "block": "3",
+        "lot": ["19"],
+        "homeOwner": "CHUA, JOHNRIO "
+    },
+    {
+        "block": "3",
+        "lot": ["20"],
+        "homeOwner": "ESTRERA, ANNIEVY (PYLENE FARHAT)"
+    },
+    {
+        "block": "3",
+        "lot": ["21"],
+        "homeOwner": "SMITH, SANDRA"
+    },
+    {
+        "block": "3",
+        "lot": ["22"],
+        "homeOwner": "ROSEL, EMMANUEL/ALLEN GRACE "
+    },
+    {
+        "block": "3",
+        "lot": ["23"],
+        "homeOwner": "LERIA, JUVY/PATRICK JOHN "
+    },
+    {
+        "block": "3",
+        "lot": ["24"],
+        "homeOwner": "GILLANA, MELVA "
+    },
+    {
+        "block": "3",
+        "lot": ["25"],
+        "homeOwner": "NARVASA, ROLIN "
+    },
+    {
+        "block": "3",
+        "lot": ["26"],
+        "homeOwner": "DIVINAGRACIA, EXCEL/ROSAMIA "
+    },
+    {
+        "block": "3",
+        "lot": ["27"],
+        "homeOwner": "CAMULTE, ALVIN / GELYNNE"
+    },
+    {
+        "block": "3",
+        "lot": ["28"],
+        "homeOwner": "GULBIN, FLORA MAE "
+    },
+    {
+        "block": "3",
+        "lot": ["29", "30"],
+        "homeOwner": "GIRON, EVANGELINE"
+    },
+    {
+        "block": "3",
+        "lot": ["31", "32"],
+        "homeOwner": "GONZALES, MELANIE/EDWIN "
+    },
+    {
+        "block": "3",
+        "lot": ["33"],
+        "homeOwner": "ELORDE, IRISHTY (NUMERIANO ESTRERA)"
+    },
+    {
+        "block": "3",
+        "lot": ["34"],
+        "homeOwner": "ALAS, MICHEL "
+    },
+    {
+        "block": "3",
+        "lot": ["35", "36"],
+        "homeOwner": "BUCTON, JASON ROI"
+    },
+    {
+        "block": "3",
+        "lot": ["37", "38"],
+        "homeOwner": "NUEVA, MARICAR "
+    },
+    {
+        "block": "3",
+        "lot": ["39"],
+        "homeOwner": "NICOLLELO, SHARON "
+    },
+    {
+        "block": "3",
+        "lot": ["40"],
+        "homeOwner": "ROLLO, EVSON (AVA JOICE CHOPDAT)"
+    },
+    {
+        "block": "3",
+        "lot": ["41"],
+        "homeOwner": "NAVARRO, ARTURO JR. (ROWELA RUIZ)"
+    },
+    {
+        "block": "3",
+        "lot": ["42"],
+        "homeOwner": "SOLIS, JESSA LYN "
+    },
+    {
+        "block": "3",
+        "lot": ["43"],
+        "homeOwner": "YAOYAO, ALVIN"
+    },
+    {
+        "block": "3",
+        "lot": ["44"],
+        "homeOwner": "BOOC, KENNETH/EDNA "
+    },
+    {
+        "block": "3",
+        "lot": ["45"],
+        "homeOwner": " JAVIER, FRANCISCO/MELDRED"
+    }
+]
