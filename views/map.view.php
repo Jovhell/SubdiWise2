@@ -57,4 +57,4 @@
 
     init()
 </script>
-<?php require 'partials/foot.php' ?>
+<?php require base_path('views/partials/foot.php') ?>
