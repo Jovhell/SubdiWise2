@@ -1,8 +1,9 @@
 <?php
 
-$router->get('/', 'controllers/index.php')->only('authenticated');
+$router->get('/', 'controllers/index.php');
 
 $router->get('/map', 'controllers/map.php');
 
 $router->get('/login', 'controllers/session/create.php')->only('guest');
-$router->post('/login', 'controllers/session/store.php');
+$router->post('/login', 'controllers/session/store.php')->only('guest');
+$router->delete('/logout', 'controllers/session/destroy.php')->only('auth');

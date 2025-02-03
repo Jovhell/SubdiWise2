@@ -45,7 +45,7 @@ class Router {
                 foreach($route['middleware'] as $middleware) {
                     Middleware::resolve($middleware);
                 }
-
+                
                 return require base_path($route['controller']);
             }
         }

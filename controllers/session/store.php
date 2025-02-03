@@ -49,7 +49,8 @@ if(!password_verify($password, $user['password'])) {
 
 login([
     'id' => $user['id'],
-    'email' => $user['email']
+    'email' => $user['email'],
+    'role' => $user['role']
 ]);
 
 header('Location: /');
