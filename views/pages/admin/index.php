@@ -1,4 +1,5 @@
 <?php require(base_path('views/partials/head.php')) ?>
+<?= style($style) ?>
 
 <main>
     <div class="left-panel">

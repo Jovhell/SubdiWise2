@@ -9,9 +9,5 @@
     <?php endif; ?>
 
     <link rel="stylesheet" href="styles/index.css">
-
-    <?php if (isset($style)): ?>
-    <link rel="stylesheet" href="styles/<?php echo $style ?>">
-    <?php endif; ?>
 </head>
 <body>

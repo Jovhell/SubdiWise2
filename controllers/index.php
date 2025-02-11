@@ -2,20 +2,20 @@
 
 $views = [
     'admin' => [
-        'view' =>'admin/index.php',
-        'style' => 'main.css',
+        'view' =>'pages/admin/index.php',
+        'style' => 'main',
         'navlinks' => [
             ['url' => '/', 'text' => 'Home'],
             ['url' => '/dashboard', 'text' => 'Dashboard']
         ]
     ],
     'user' => [
-        'view' =>'user/index.php',
-        'style' => 'main.css'
+        'view' =>'pages/user/index.php',
+        'style' => 'main'
     ],
     'default' => [
-        'view' =>'landing.php',
-        'style' => ''
+        'view' =>'pages/landing/index.php',
+        'style' => 'landing'
     ]
 ];
 

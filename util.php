@@ -16,6 +16,29 @@ function view($path = "", $data = []) {
     require(base_path('views/' . $path));
 }
 
+function style($path) {
+    $fullPath = base_path("views/styles/{$path}.css");
+
+    if (!$path || !file_exists($fullPath)) {
+        return '';
+    }
+
+    ob_start();
+    require $fullPath;
+    $css = ob_get_clean();
+
+    return "<style>\n{$css}\n</style>";
+}
+
+function partial($name, $data = []) {
+    $fullPath = base_path("views/partials/{$name}.php");
+
+    if (file_exists($fullPath)) {
+        extract($data);
+        require $fullPath;
+    }
+}
+
 function login($user) {
     $_SESSION['user'] = [
         'email' => $user['email'],

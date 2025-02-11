@@ -1,4 +1,6 @@
 <?php require(base_path('views/partials/head.php')) ?>
+<?= style($style) ?>
+
 <div class="container">
     <div class="header">
         <h1>SubdiWise</h1>

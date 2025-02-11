@@ -1,4 +1,5 @@
 <?php require base_path('views/partials/header.php'); ?>
+<?= style($style) ?>
 
 <h1>User Page</h1>
 <p>Welcome, User!</p>
