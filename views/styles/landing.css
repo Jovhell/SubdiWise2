@@ -13,6 +13,11 @@
         top: 0;
         left: 0;
         right: 0;
+        transition: 0.3s;
+
+        &.scrolled {
+            background-color: var(--primary-color);
+        }
 
         .brand {
             display: flex;
@@ -43,7 +48,6 @@
             gap: 0.5rem;
 
             li {
-                padding: 1rem;
                 cursor: pointer;
 
                 a {
@@ -53,6 +57,7 @@
                     font-size: 0.9rem;
                     position: relative;
                     padding-bottom: 0.2rem;
+                    padding: 1rem;
 
                     &.login {
                         border: 1px solid var(--midtone);
@@ -72,14 +77,14 @@
                         background-color: var(--midtone);
                         width: 0;
                         height: 2px;
-                        left: 0;
-                        bottom: 0;
+                        left: 1rem;
+                        bottom: 0.8rem;
                         transition: 0.3s;
                     }
                 }
 
                 &:hover a::after {
-                    width: 100%;
+                    width: calc(100% - 2rem);
                 }
 
                 &:has(a.login) {
@@ -89,11 +94,19 @@
         }
     }
 
-    #home {
-        padding-top: var(--nav-height);
-        height: 100vh;
+    section {
+        padding-block: calc(var(--nav-height) + 2rem) 2rem;
+        min-height: 100vh;
         display: grid;
         grid-template-columns: repeat(12, 1fr);
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+        }
+    }
+
+    #home {
         background-color: var(--primary-color);
         color: var(--midtone);
 
@@ -109,6 +122,7 @@
 
             .subheading {
                 font-size: 1.3rem;
+                font-weight: 400;
                 margin-top: 0.5rem;
             }
 
@@ -132,7 +146,6 @@
 
         .image {
             grid-column: 8 / 13;
-            padding-block: 2rem;
             
             img {
                 height: 100%;
@@ -140,6 +153,96 @@
                 object-fit: cover;
                 border-radius: 1rem 0 0 1rem;
             }
+        }
+    }
+
+    #about {
+        grid-template-rows: 2rem 1fr;
+        gap: 1rem;
+        background-color: var(--midtone);
+
+        .title {
+            grid-column: 2 / 12;
+            grid-row: 1;
+        }
+
+        .image {
+            grid-column: 2 / 5;
+            grid-row: 2;
+
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                object-position: 30%;
+                border-radius: 0.5rem;
+            }
+        }
+
+        .context {
+            grid-row: 2;
+            grid-column: 5 / 12;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
+            p {
+                font-size: 1rem;
+                color: var(--secondary-color);
+            }
+        }
+    }
+
+    #explore {
+        grid-template-rows: 2rem 1fr;
+        gap: 1rem;
+        background-color: var(--midtone);
+
+        .title {
+            grid-column: 2 / 12;
+            grid-row: 1;
+        }
+
+        .features {
+            grid-column: 2 / 6;
+            background-color: var(--secondary-color);
+            color: var(--midtone);
+            padding: 1.5rem 2rem;
+            border-radius: 0.5rem;
+
+            h4 {
+                margin-bottom: 1rem;
+            }
+
+            ul {
+                list-style-type: none;
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+
+                li {
+                    display: grid;
+                    align-items: center;
+                    grid-template-columns: 1.5rem 1fr;
+                    gap: 1rem;
+
+                    .icon {
+                        img {
+                            height: 100%;
+                            width: 100%;
+                        }
+                    }
+
+                    .text {
+                        font-size: 0.9rem;
+                    }
+                }
+            }
+        }
+
+        .house-types {
+            grid-column: 6 / 12;
+            padding-top: 1.5rem;
         }
     }
 }

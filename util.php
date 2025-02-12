@@ -30,6 +30,20 @@ function style($path) {
     return "<style>\n{$css}\n</style>";
 }
 
+function script($name) {
+    $fullPath = base_path("views/scripts/{$name}.js");
+
+    if(!$name || !file_exists($fullPath)) {
+        return "";
+    }
+
+    ob_start();
+    require $fullPath;
+    $js = ob_get_clean();
+
+    return "<script>\n{$js}\n</script>";
+}
+
 function partial($name, $data = []) {
     $fullPath = base_path("views/partials/{$name}.php");
 

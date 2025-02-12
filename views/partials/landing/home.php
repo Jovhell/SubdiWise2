@@ -1,7 +1,7 @@
 <section id="home">
     <div class="hero">
-        <div class="heading">A Peaceful Place to Connect & Belong.</div>
-        <div class="subheading">The official community portal for Anami Homes, keeping residents connected and informed</div>
+        <h1 class="heading">A Peaceful Place to Connect & Belong.</h1>
+        <h2 class="subheading">The official community portal for Anami Homes, keeping residents connected and informed</h2>
         <a href="/login" class="cta">Dashboard</a>
     </div>
     <div class="image">
