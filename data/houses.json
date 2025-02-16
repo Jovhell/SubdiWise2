@@ -1,7 +1,7 @@
 [
     {
         "name": "Orchid",
-        "type": "townhouse",
+        "type": "Townhouse",
         "metrics": [
             {
                 "dataType": "Beds",
@@ -18,39 +18,93 @@
             }
         ]
     },{
-        "name": "Orchid",
-        "type": "townhouse",
+        "name": "Dahlia",
+        "type": "Townhouse",
         "metrics": [
             {
                 "dataType": "Beds",
-                "data": 3
+                "data": 2
             },{
                 "dataType": "Baths",
-                "data": 3
+                "data": 1
             },{
                 "dataType": "Property Area",
-                "data": 85
+                "data": 70
             },{
                 "dataType": "Land Area",
-                "data": 135
+                "data": 80
             }
         ]
     },{
-        "name": "Orchid",
-        "type": "townhouse",
+        "name": "Single Attached",
+        "type": "Single Attached",
         "metrics": [
             {
                 "dataType": "Beds",
                 "data": 3
             },{
                 "dataType": "Baths",
-                "data": 3
+                "data": 2
             },{
                 "dataType": "Property Area",
-                "data": 85
+                "data": 89
             },{
                 "dataType": "Land Area",
-                "data": 135
+                "data": 91
+            }
+        ]
+    },{
+        "name": "Shophouse",
+        "type": "Shophouse",
+        "metrics": [
+            {
+                "dataType": "Beds",
+                "data": 4
+            },{
+                "dataType": "Baths",
+                "data": 2
+            },{
+                "dataType": "Property Area",
+                "data": 161
+            },{
+                "dataType": "Land Area",
+                "data": 141
+            }
+        ]
+    },{
+        "name": "Daisy",
+        "type": "Townhouse",
+        "metrics": [
+            {
+                "dataType": "Beds",
+                "data": 3
+            },{
+                "dataType": "Baths",
+                "data": 2
+            },{
+                "dataType": "Property Area",
+                "data": 84
+            },{
+                "dataType": "Land Area",
+                "data": 72
+            }
+        ]
+    },{
+        "name": "Sunflower",
+        "type": "Townhouse",
+        "metrics": [
+            {
+                "dataType": "Beds",
+                "data": 3
+            },{
+                "dataType": "Baths",
+                "data": 2
+            },{
+                "dataType": "Property Area",
+                "data": 69
+            },{
+                "dataType": "Land Area",
+                "data": 65
             }
         ]
     }

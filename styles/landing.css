@@ -253,24 +253,26 @@
             }
 
             .carousel {
-                position: relative;
                 flex: 1;
                 overflow-x: hidden;
                 display: flex;
                 flex-direction: column;
+                justify-content: space-between;
                 gap: 1rem;
 
                 .houses {
                     list-style-type: none;
                     display: flex;
+                    position: relative;
     
                     .house {
-                        position: relative;
+                        /* position: absolute; */
                         flex: 0 0 100%;
                         inset: 0;
                         display: grid;
                         grid-template-columns: repeat(6, 1fr);
                         gap: 1rem;
+                        transition: 0.5s;
     
                         .details {
                             grid-column: 1 / 3;
@@ -286,6 +288,7 @@
                                     font-weight: 900;
                                     font-size: 4rem;
                                     line-height: 1;
+                                    white-space: nowrap;
                                 }
     
                                 .type {

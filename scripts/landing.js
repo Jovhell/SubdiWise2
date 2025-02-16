@@ -1,6 +1,66 @@
 const navbar = document.querySelector('nav')
 const hero = document.querySelector('#home')
 const housesNode = document.querySelector('.houses')
+const prevBtn = document.querySelector('.prev')
+const nextBtn = document.querySelector('.next')
+
+const housesList = []
+let activeIndex = 0
+let interval
+
+const displayHouse = () => {
+    const currentHouse = housesList[activeIndex]
+    housesNode.appendChild(currentHouse)
+}
+
+const scrollPrev = () => {
+    const currentHouse = housesList[activeIndex]
+    activeIndex = (activeIndex - 1 + housesList.length) % housesList.length;
+    const prevHouse = housesList[activeIndex]
+    
+    prevHouse.style.transform = 'translateX(-100%)'
+    prevHouse.style.position = 'absolute'
+    displayHouse()
+
+    requestAnimationFrame(() => {
+        currentHouse.style.transform = "translateX(100%)"
+        prevHouse.style.transform = "translateX(0%)"
+
+        setTimeout(() => {
+            housesNode.removeChild(currentHouse)
+        }, 500)
+    })
+}
+
+const scrollNext = () => {
+    const currentHouse = housesList[activeIndex]
+    activeIndex = (activeIndex + 1) % housesList.length;
+    const nextHouse = housesList[activeIndex]
+
+    nextHouse.style.transform = 'translateX(100%)'
+    nextHouse.style.position = 'absolute'
+    displayHouse()
+    
+    requestAnimationFrame(() => {
+        currentHouse.style.transform = "translateX(-100%)"
+        nextHouse.style.transform = "translateX(0%)"
+
+        setTimeout(() => {
+            housesNode.removeChild(currentHouse)
+        }, 500)
+    })
+}
+
+const slideshow = () => {
+    stopSlideshow()
+    interval = setInterval(() => {
+        scrollNext()
+    }, 3000)
+}
+
+const stopSlideshow = () => {
+    clearInterval(interval)
+}
 
 const loadHouses = (houses) => {
     houses.forEach(house => {
@@ -44,8 +104,12 @@ const loadHouses = (houses) => {
         listItem.appendChild(details)
         listItem.appendChild(picture)
 
-        housesNode.appendChild(listItem)
+        // housesNode.appendChild(listItem)
+        housesList.push(listItem)
     });
+
+    displayHouse()
+    slideshow()
 }
 
 const createNode = ({ 
@@ -80,9 +144,10 @@ const handleLoad = async () => {
     const res = await fetch("/api/houses")
     const data = await res.json()
 
-    console.log(data)
     loadHouses(data)
 }
 
 addEventListener("scroll", handleScroll)
 addEventListener("DOMContentLoaded", handleLoad)
+prevBtn.addEventListener('click', scrollPrev)
+nextBtn.addEventListener('click', scrollNext)

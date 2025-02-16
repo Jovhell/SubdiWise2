@@ -54,9 +54,9 @@
                 
             </ul>
             <div class="buttons">
-                <button></button>
+                <button class="prev"></button>
                 <button class="active"></button>
-                <button></button>
+                <button class="next"></button>
             </div>
         </div>
     </div>
