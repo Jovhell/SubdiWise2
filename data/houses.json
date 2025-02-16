@@ -1,0 +1,57 @@
+[
+    {
+        "name": "Orchid",
+        "type": "townhouse",
+        "metrics": [
+            {
+                "dataType": "Beds",
+                "data": 3
+            },{
+                "dataType": "Baths",
+                "data": 3
+            },{
+                "dataType": "Property Area",
+                "data": 85
+            },{
+                "dataType": "Land Area",
+                "data": 135
+            }
+        ]
+    },{
+        "name": "Orchid",
+        "type": "townhouse",
+        "metrics": [
+            {
+                "dataType": "Beds",
+                "data": 3
+            },{
+                "dataType": "Baths",
+                "data": 3
+            },{
+                "dataType": "Property Area",
+                "data": 85
+            },{
+                "dataType": "Land Area",
+                "data": 135
+            }
+        ]
+    },{
+        "name": "Orchid",
+        "type": "townhouse",
+        "metrics": [
+            {
+                "dataType": "Beds",
+                "data": 3
+            },{
+                "dataType": "Baths",
+                "data": 3
+            },{
+                "dataType": "Property Area",
+                "data": 85
+            },{
+                "dataType": "Land Area",
+                "data": 135
+            }
+        ]
+    }
+]

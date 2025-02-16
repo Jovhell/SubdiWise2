@@ -1,4 +1,16 @@
+<?php
+$jsonFilePath = __DIR__ . '/../data/residence.json';
+
+if (file_exists($jsonFilePath)) {
+    $jsonData = file_get_contents($jsonFilePath);
+    $residenceData = json_decode($jsonData, true); // Decode JSON to array
+} else {
+    $residenceData = ["error" => "File not found"];
+}
+?>
+
 <?php require(base_path('views/partials/head.php')) ?>
+<?= style('map')?>
 <body>
     <div class="container">
         <div class="tooltip">
@@ -19,14 +31,12 @@
     }
 
     async function getResidents() {
-        const res = await fetch(`data/residence.json`)
-        const data = await res.json()
+        const data = <?php echo json_encode($residenceData, JSON_PRETTY_PRINT); ?>
 
         residents = data
     }
 
     function addHover() {
-        console.log(residents)
         paths.forEach(path => {
             path.addEventListener('mouseover', (e) => {
                 const tooltip = document.querySelector(".tooltip")

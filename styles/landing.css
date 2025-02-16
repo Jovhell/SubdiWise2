@@ -196,7 +196,7 @@
 
     #explore {
         grid-template-rows: 2rem 1fr;
-        gap: 1rem;
+        gap: 1rem 2rem;
         background-color: var(--midtone);
 
         .title {
@@ -375,16 +375,16 @@
                     gap: 0.5rem;
                     
                     button {
-                        width: 0.8rem;
-                        height: 0.8rem;
+                        width: 0.7rem;
+                        height: 0.7rem;
                         background-color: rgb(195, 195, 195);
                         border-radius: 2rem;
                         border: none;
                         cursor: pointer;
 
                         &.active {
-                            width: 1.6rem;
-                            height: 0.8rem;
+                            width: 2rem;
+                            height: 0.7rem;
                             background-color: var(--secondary-color);
                         }
                     }

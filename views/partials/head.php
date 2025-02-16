@@ -8,6 +8,6 @@
     <title><?php echo $title ?></title>
     <?php endif; ?>
 
-    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>

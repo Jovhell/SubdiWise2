@@ -17,7 +17,7 @@ function view($path = "", $data = []) {
 }
 
 function style($path) {
-    $fullPath = base_path("views/styles/{$path}.css");
+    $fullPath = base_path("styles/{$path}.css");
 
     if (!$path || !file_exists($fullPath)) {
         return '';
@@ -31,7 +31,7 @@ function style($path) {
 }
 
 function script($name) {
-    $fullPath = base_path("views/scripts/{$name}.js");
+    $fullPath = base_path("scripts/{$name}.js");
 
     if(!$name || !file_exists($fullPath)) {
         return "";
