@@ -8,6 +8,86 @@ const housesList = []
 let activeIndex = 0
 let interval
 
+const anamiHomes = { lat: 10.280378611846126, lng: 123.96300678555058 }
+let map, geocoder, marker
+
+const initMap = async () => {
+    (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+        key: "AIzaSyBUE_qqLPIyEb1uGZeAx6asjCid3UDr22c",
+        v: "weekly",
+    })
+
+    const MAP_ID = '3bd7dad86499c826'
+
+    const { Map } = await google.maps.importLibrary("maps")
+    const { Geocoder } = await google.maps.importLibrary("geocoding")
+    const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
+    geocoder = new Geocoder()
+    map = new Map(document.querySelector(".map"), {
+        center: anamiHomes,
+        zoom: 18,
+        mapId: MAP_ID
+    });
+    marker = new AdvancedMarkerElement({
+        position: anamiHomes,
+        map: map,
+    })
+}
+
+const moveMap = (location) => {
+    let coords = location
+
+    if (typeof location === "object" && !location.lat && !location.lng)
+        alert("Invalid location format. Use an address string or { lat, lng } object.");
+
+    if (typeof location === "string") {
+        geocoder.geocode({ address: location }, (results, status) => 
+            coords = status === "OK" ? results[0].geometry.location : anamiHomes
+        )
+    }
+
+    map.panTo(coords)
+    displayMarker(coords)
+};
+
+const displayMarker = (coords) => {
+    const label = document.createElement("div");
+    label.className = "marker-label";
+    label.style.position = "absolute";
+    label.style.background = "white";
+    label.style.padding = "5px 10px";
+    label.style.borderRadius = "5px";
+    label.style.fontSize = "14px";
+    label.style.boxShadow = "0px 2px 5px rgba(0,0,0,0.3)";
+    // label.style.display = "none"; // Hidden until location is found
+    document.body.appendChild(label);
+
+    geocoder.geocode({ location: marker.position }, (results, status) => {
+        if (status === "OK" && results[0]) {
+            const locationName = results[0].formatted_address;
+
+            // ✅ Update Marker Label
+            label.innerText = 'hello world';
+            label.style.display = "block";
+
+            // ✅ Position Label on the Map
+            const projection = map.getProjection();
+            if (projection) {
+                const point = projection.fromLatLngToPoint(marker.position);
+                label.style.left = `${point.x}px`;
+                label.style.top = `${point.y}px`;
+            }
+        } else {
+            // label.style.display = "none";
+            console.error("Geocoder failed: " + status);
+        }
+    });
+
+    marker.position = coords
+}
+
+
 const displayHouse = () => {
     const currentHouse = housesList[activeIndex]
     housesNode.appendChild(currentHouse)
@@ -42,12 +122,14 @@ const scrollNext = () => {
     displayHouse()
     
     requestAnimationFrame(() => {
-        currentHouse.style.transform = "translateX(-100%)"
-        nextHouse.style.transform = "translateX(0%)"
-
-        setTimeout(() => {
-            housesNode.removeChild(currentHouse)
-        }, 500)
+        requestAnimationFrame(() => {
+            currentHouse.style.transform = "translateX(-100%)"
+            nextHouse.style.transform = "translateX(0%)"
+    
+            setTimeout(() => {
+                housesNode.removeChild(currentHouse)
+            }, 500)
+        })
     })
 }
 
@@ -145,9 +227,11 @@ const handleLoad = async () => {
     const data = await res.json()
 
     loadHouses(data)
+    initMap();
 }
 
 addEventListener("scroll", handleScroll)
 addEventListener("DOMContentLoaded", handleLoad)
 prevBtn.addEventListener('click', scrollPrev)
 nextBtn.addEventListener('click', scrollNext)
+
