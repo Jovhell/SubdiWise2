@@ -3,13 +3,47 @@ const hero = document.querySelector('#home')
 const housesNode = document.querySelector('.houses')
 const prevBtn = document.querySelector('.prev')
 const nextBtn = document.querySelector('.next')
+const controls = document.querySelector('.controls')
 
 const housesList = []
 let activeIndex = 0
 let interval
 
-const anamiHomes = { lat: 10.280378611846126, lng: 123.96300678555058 }
-let map, geocoder, marker
+let PLACES, map, geocoder, marker, placesService, label
+
+const displayAccordions = () => {
+    for(let [key, place] of Object.entries(PLACES)) {
+        const item = createNode({ element: "div", className: "item"})
+        const title = createNode({ element: "div", className: "title"})
+        const header = createNode({ element: "h5", className: "header", innerText: place.businessName })
+        const subheader = createNode({ element: "p", className: "subheader", innerText: place.type })
+        const content = createNode({ element: "div", className: "content", innerText: place.content })
+
+        title.setAttribute("data-key", key)
+
+        title.appendChild(header)
+        title.appendChild(subheader)
+        item.appendChild(title)
+        item.appendChild(content)
+
+        controls.appendChild(item)
+    }
+
+    controls.querySelectorAll(".title").forEach(header => {
+        header.addEventListener("click", function() {
+            const item = this.parentElement;
+            const isActive = item.classList.contains("active");
+
+            controls.querySelectorAll(".item").forEach(i => i.classList.remove("active"));
+
+            if (!isActive) {
+                item.classList.add("active");
+            }
+
+            moveMap(header.dataset.key)
+        });
+    });
+}
 
 const initMap = async () => {
     (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
@@ -22,71 +56,86 @@ const initMap = async () => {
     const { Map } = await google.maps.importLibrary("maps")
     const { Geocoder } = await google.maps.importLibrary("geocoding")
     const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+    const { PlacesService } = await google.maps.importLibrary("places");
 
     geocoder = new Geocoder()
     map = new Map(document.querySelector(".map"), {
-        center: anamiHomes,
         zoom: 18,
         mapId: MAP_ID
     });
     marker = new AdvancedMarkerElement({
-        position: anamiHomes,
         map: map,
     })
+    label = createNode({ element: 'div', className: 'marker-label'})
+    placesService = new PlacesService(map)
+
+    marker.content.classList.add("bounce")
+
+    moveMap(PLACES.anamiHomes)
+    displayAccordions()
 }
 
-const moveMap = (location) => {
+const moveMap = async (location) => {
     let coords = location
 
     if (typeof location === "object" && !location.lat && !location.lng)
         alert("Invalid location format. Use an address string or { lat, lng } object.");
 
     if (typeof location === "string") {
-        geocoder.geocode({ address: location }, (results, status) => 
-            coords = status === "OK" ? results[0].geometry.location : anamiHomes
-        )
+        coords = PLACES[location]
     }
 
-    map.panTo(coords)
-    displayMarker(coords)
-};
+    const place = await getPlace(coords)
+    
+    map.panTo(place.geometry.location)
 
-const displayMarker = (coords) => {
-    const label = document.createElement("div");
-    label.className = "marker-label";
-    label.style.position = "absolute";
-    label.style.background = "white";
-    label.style.padding = "5px 10px";
-    label.style.borderRadius = "5px";
-    label.style.fontSize = "14px";
-    label.style.boxShadow = "0px 2px 5px rgba(0,0,0,0.3)";
-    // label.style.display = "none"; // Hidden until location is found
-    document.body.appendChild(label);
-
-    geocoder.geocode({ location: marker.position }, (results, status) => {
-        if (status === "OK" && results[0]) {
-            const locationName = results[0].formatted_address;
-
-            // ✅ Update Marker Label
-            label.innerText = 'hello world';
-            label.style.display = "block";
-
-            // ✅ Position Label on the Map
-            const projection = map.getProjection();
-            if (projection) {
-                const point = projection.fromLatLngToPoint(marker.position);
-                label.style.left = `${point.x}px`;
-                label.style.top = `${point.y}px`;
-            }
-        } else {
-            // label.style.display = "none";
-            console.error("Geocoder failed: " + status);
-        }
+    google.maps.event.addListenerOnce(map, 'idle', () => {
+        displayMarker(place.geometry.location)
+        displayLabel(place.name)
     });
 
-    marker.position = coords
+    google.maps.event.addListener(map, 'zoom_changed', () => {
+        console.log("zoom level:", map.getZoom())
+        displayLabel(label.innerText)
+    });
+};
+
+const getPlace = async coords => {
+    return new Promise((resolve, reject) => {
+        placesService.nearbySearch({ location: coords, radius: 50}, (results, status) => {
+            if(status === "OK" && results.length > 0) {
+                const place = results.filter(place => place.name.includes(coords.businessName))[0]
+                resolve(place)
+            } else {
+                reject("Place not found at getPlace()")
+            }
+        })
+
+    })
 }
 
+const displayMarker = (coords) => {
+    marker.content.style.display = 'none'
+    marker.position = coords
+    setTimeout(() => {
+        marker.content.style.display = 'block'
+    }, 50)
+}
+
+const displayLabel = (text) => {
+    const markerParent = marker.content.parentElement
+    const zoomLevel = map.getZoom()
+
+    console.log(zoomLevel)
+
+    if(zoomLevel <= 15) {
+        markerParent.removeChild(label)
+        return
+    }
+
+    markerParent.appendChild(label)
+    label.innerText = text
+}
 
 const displayHouse = () => {
     const currentHouse = housesList[activeIndex]
@@ -223,10 +272,14 @@ const handleScroll = e => {
 }
 
 const handleLoad = async () => {
-    const res = await fetch("/api/houses")
-    const data = await res.json()
+    const [houses, places] = await Promise.all([
+        fetch("/api/houses").then(res => res.json()),
+        fetch("/api/places").then(res => res.json())
+    ]);
+    
+    PLACES = places
 
-    loadHouses(data)
+    loadHouses(houses)
     initMap();
 }
 

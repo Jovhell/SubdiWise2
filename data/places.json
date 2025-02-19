@@ -1,0 +1,37 @@
+{
+    "anamiHomes": {
+        "lat": 10.2803348,
+        "lng": 123.9629922,
+        "businessName": "Anami Homes Mactan",
+        "type": "Home",
+        "content": "Anami Homes Mactan is a 1.3-hectare residential development located in Barangay Sudtunggan, Basak, Lapu-Lapu City, Cebu. It offers modern and affordable townhouse units in a gated community with amenities such as a multi-purpose hall, covered basketball court, landscaped parks, and 24/7 security. Strategically positioned near key establishments like Mactan-Cebu International Airport, Mactan Doctors' Hospital, and Gaisano Grand Mall Basak, it provides a convenient and comfortable living environment close to schools, resorts, and business hubs."
+    },
+    "sevenEleven": {
+        "lat": 10.282712,
+        "lng": 123.9650284,
+        "businessName": "7-Eleven",
+        "type": "Convenience Store",
+        "content": "7-Eleven near Anami Homes Mactan provides residents with a convenient spot for quick essentials, snacks, beverages, and everyday necessities. Open 24/7, it ensures easy access to groceries, hot food, and services like bill payments, making daily errands hassle-free. Its proximity to the community adds to the convenience of living in Anami Homes Mactan."
+    },
+    "grandMall": {
+        "lat": 10.2860571,
+        "lng": 123.9694198,
+        "businessName": "Gaisano Grand Mall Mactan",
+        "type": "Shopping Mall",
+        "content": "Gaisano Grand Mall Basak is a major shopping and lifestyle hub near Anami Homes Mactan, offering a variety of retail stores, supermarkets, restaurants, and entertainment options. Just a short drive away, it provides residents with convenient access to groceries, dining, fashion, and essential services, making everyday shopping and leisure activities more accessible."
+    },
+    "mactanDoc": {
+        "lat": 10.2898292,
+        "lng": 123.966778,
+        "businessName": "Mactan Doctor's Hospital",
+        "type": "Hospital",
+        "content": "Mactan Doctor's Hospital is a full-service medical facility near Anami Homes Mactan, providing residents with accessible healthcare services. It offers emergency care, specialized treatments, diagnostic services, and inpatient and outpatient care. Its proximity ensures that quality medical attention is just minutes away, adding to the convenience and security of living in Anami Homes Mactan."
+    },
+    "airport": {
+        "lat": 10.3130493,
+        "lng": 123.976376,
+        "businessName": "Mactan-Cebu International Airport",
+        "type": "Airport",
+        "content": "Mactan-Cebu International Airport (MCIA) is the main gateway to Cebu and the Visayas region, located about 20 minutes from Anami Homes Mactan. It offers both domestic and international flights, providing residents with convenient travel options. As one of the busiest airports in the Philippines, MCIA features modern facilities, dining, shopping, and transportation services, making air travel easy and accessible for Anami Homes Mactan residents."
+    }
+}
