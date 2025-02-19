@@ -9,7 +9,7 @@ const housesList = []
 let activeIndex = 0
 let interval
 
-let PLACES, map, geocoder, marker, placesService, label
+let PLACES, map, geocoder, marker, placesService, label, directionsService, directionsRenderer
 
 const displayAccordions = () => {
     for(let [key, place] of Object.entries(PLACES)) {
@@ -57,6 +57,7 @@ const initMap = async () => {
     const { Geocoder } = await google.maps.importLibrary("geocoding")
     const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
     const { PlacesService } = await google.maps.importLibrary("places");
+    const { DirectionsService, DirectionsRenderer } = await google.maps.importLibrary("routes")
 
     geocoder = new Geocoder()
     map = new Map(document.querySelector(".map"), {
@@ -68,11 +69,47 @@ const initMap = async () => {
     })
     label = createNode({ element: 'div', className: 'marker-label'})
     placesService = new PlacesService(map)
+    directionsService = new DirectionsService()
+    directionsRenderer = new DirectionsRenderer()
 
+    directionsRenderer.setMap(map)
     marker.content.classList.add("bounce")
 
     moveMap(PLACES.anamiHomes)
     displayAccordions()
+}
+
+const showRoute = (origin, destination) => {
+    if (
+        JSON.stringify({lat: origin.lat, lng: origin.lng}) === 
+        JSON.stringify({lat: destination.lat(), lng: destination.lng()})
+    ) {
+        map.setZoom(18)
+        directionsRenderer.setDirections({ routes: [] })
+        return
+    }
+
+    const request = {
+        origin: origin,
+        destination: destination,
+        travelMode: google.maps.TravelMode.DRIVING, // Change to WALKING, BICYCLING, or TRANSIT
+    };
+
+    directionsService.route(request, (result, status) => {
+        if (status === google.maps.DirectionsStatus.OK) {
+            directionsRenderer.setDirections(result);
+
+            directionsRenderer.setOptions({ 
+                suppressMarkers: true, 
+                polylineOptions: {
+                    strokeColor: '#47663B',
+                    strokeWeight: 6
+                }
+            });
+        } else {
+            console.error("Directions request failed:", status);
+        }
+    })
 }
 
 const moveMap = async (location) => {
@@ -92,13 +129,14 @@ const moveMap = async (location) => {
     google.maps.event.addListenerOnce(map, 'idle', () => {
         displayMarker(place.geometry.location)
         displayLabel(place.name)
+
+        showRoute(PLACES.anamiHomes, place.geometry.location)
     });
 
     google.maps.event.addListener(map, 'zoom_changed', () => {
-        console.log("zoom level:", map.getZoom())
         displayLabel(label.innerText)
     });
-};
+}
 
 const getPlace = async coords => {
     return new Promise((resolve, reject) => {
@@ -126,11 +164,11 @@ const displayLabel = (text) => {
     const markerParent = marker.content.parentElement
     const zoomLevel = map.getZoom()
 
-    console.log(zoomLevel)
-
-    if(zoomLevel <= 15) {
-        markerParent.removeChild(label)
-        return
+    if (zoomLevel <= 15) {
+        if (markerParent.contains(label)) {
+            markerParent.removeChild(label);
+        }
+        return;
     }
 
     markerParent.appendChild(label)
@@ -251,12 +289,6 @@ const createNode = ({
 }) => {
     const el = document.createElement(element)
     el.className = className
-    // el.classList.add(
-    //     ...(Array.isArray(className) ? 
-    //         className : 
-    //         className.split(" ")
-    //     )
-    // )
     el.innerText = innerText
     el.src = src
 

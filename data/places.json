@@ -33,5 +33,19 @@
         "businessName": "Mactan-Cebu International Airport",
         "type": "Airport",
         "content": "Mactan-Cebu International Airport (MCIA) is the main gateway to Cebu and the Visayas region, located about 20 minutes from Anami Homes Mactan. It offers both domestic and international flights, providing residents with convenient travel options. As one of the busiest airports in the Philippines, MCIA features modern facilities, dining, shopping, and transportation services, making air travel easy and accessible for Anami Homes Mactan residents."
+    },
+    "elementary": {
+        "lat": 10.280069,
+        "lng": 123.9606011,
+        "businessName": "Sudtonggan Elementary School",
+        "type": "School",
+        "content": ""
+    },
+    "benthel": {
+        "lat": 10.28132,
+        "lng": 123.9654715,
+        "businessName": "Benthel Asia School of Technology",
+        "type": "School",
+        "content": ""
     }
 }

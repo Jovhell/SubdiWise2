@@ -10,10 +10,6 @@
     <?= partial('landing/directions') ?>
 </main>
 
-<script>
-  
-</script>
-
 <?= script('landing') ?>
 <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUE_qqLPIyEb1uGZeAx6asjCid3UDr22cY&callback=initMap" async defer></script> -->
 

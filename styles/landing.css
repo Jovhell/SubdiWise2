@@ -465,6 +465,10 @@
                 &.active {
                     .title {
                         backdrop-filter: brightness(1.1);
+                        
+                        h5 {
+                            color: var(--accent-color);
+                        }
                     }
 
                     .content {
@@ -499,6 +503,7 @@
                     padding: 0 2rem;
                     font-size: 0.9rem;
                     transition: 0.3s ease-in-out;
+                    line-height: 1.4;
                 }
             }
 
