@@ -138,6 +138,7 @@
                 font-size: 1rem;
                 cursor: pointer;
                 text-decoration: none;
+                font-size: 1.2rem;
 
                 &:hover {
                     filter: brightness(1.1);
@@ -457,6 +458,7 @@
                 top: 0;
                 background-color: var(--secondary-color);
                 padding-bottom: 0.5rem;
+                padding-left: 1rem;
             }
 
             .item {
@@ -465,6 +467,10 @@
                 &.active {
                     .title {
                         backdrop-filter: brightness(1.1);
+
+                        &::after {
+                            transform: translateY(-100%) rotate(-135deg);
+                        }
                         
                         h5 {
                             color: var(--accent-color);
@@ -482,6 +488,22 @@
                     padding: 0.5rem 1rem;
                     cursor: pointer;
                     border-radius: 0.5rem;
+                    position: relative;
+                
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        right: 1rem;
+                        width: 0.5rem;
+                        aspect-ratio: 1;
+                        border: 2px solid var(--midtone);
+                        border-top: transparent;
+                        border-left: transparent;
+                        transform: translateY(-100%) rotate(45deg);
+                        transform-origin: 75% 75%;
+                        transition: 0.2s;
+                    }
 
                     &:hover {
                         backdrop-filter: brightness(1.1);

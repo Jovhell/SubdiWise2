@@ -16,10 +16,14 @@ if(!Validator::string($password)) {
 }
 
 if(!empty($errors)) {
-    return view('session/create.view.php', [
+    return view('pages/session/create.view.php', [
         'title' => 'Login',
-        'style' => 'login.css',
-        'errors' => $errors
+        'style' => 'login',
+        'errors' => $errors,
+        'form_data' => [
+            'email' => $email,
+            'password' => $password
+        ]
     ]);
 }
 
@@ -28,21 +32,19 @@ $user = $db->query('SELECT * FROM users WHERE email = :email', [
 ])->fetch();
 
 if(!$user) {
-    return view('session/create.view.php', [
-        'title' => 'Login',
-        'style' => 'login.css',
-        'errors' => [
-            'email' => 'User not found'
-        ]
-    ]);
+    $errors['email'] = 'User not found';
+} elseif(!password_verify($password, $user['password'])) {
+    $errors['password'] = "Password is incorrect";
 }
 
-if(!password_verify($password, $user['password'])) {
-    return view('session/create.view.php', [
+if(!empty($errors)) {
+    return view('pages/session/create.view.php', [
         'title' => 'Login',
-        'style' => 'login.css',
-        'errors' => [
-            'password' => 'Password is incorrect'
+        'style' => 'login',
+        'errors' => $errors,
+        'form_data' => [
+            'email' => $email,
+            'password' => $password
         ]
     ]);
 }
