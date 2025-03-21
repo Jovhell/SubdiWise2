@@ -54,10 +54,7 @@ function partial($name, $data = []) {
 }
 
 function login($user) {
-    $_SESSION['user'] = [
-        'email' => $user['email'],
-        'role' => $user['role']
-    ];
+    $_SESSION['user'] = $user;
 
     session_regenerate_id();
 }
@@ -76,4 +73,32 @@ function logout() {
         $params['secure'],
         $params['httponly']
     );
+}
+
+function timeAgo($datetime) {
+    date_default_timezone_set('Asia/Manila');
+    $timestamp = strtotime($datetime);
+    if (!$timestamp) return "Invalid date";
+
+    $now = time();
+    $diff = $now - $timestamp;
+
+    $units = [
+        "year" => 31536000,
+        "month" => 2592000,
+        "week" => 604800,
+        "day" => 86400,
+        "hour" => 3600,
+        "minute" => 60,
+        "second" => 1
+    ];
+
+    foreach ($units as $unit => $value) {
+        if ($diff >= $value) {
+            $count = floor($diff / $value);
+            return $count === 1 ? "1 $unit ago" : "$count {$unit}s ago";
+        }
+    }
+    
+    return "just now";
 }

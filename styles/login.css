@@ -36,7 +36,7 @@ body {
             }
 
             .name {
-                font-weight: 800;
+                font-weight: 600;
                 font-size: 1.2rem;
             }
         }
@@ -91,7 +91,7 @@ body {
                                 background-color: transparent !important;
                                 box-shadow: 0 0 0px 1000px var(--red-soft) inset !important;
                                 -webkit-text-fill-color: var(--red) !important;
-                            }
+                            }   
                         }
 
                         button {

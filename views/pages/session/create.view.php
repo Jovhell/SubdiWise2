@@ -6,7 +6,6 @@
         <a href="/" class="brand">
             <div class="logo">
                 <?php require('assets/Logo.svg') ?>
-                <!-- <img src="assets/Logo.svg" alt=""> -->
             </div>
             <div class="name">SubdiWise</div>
         </a>

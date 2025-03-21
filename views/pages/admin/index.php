@@ -1,16 +1,18 @@
 <?php require(base_path('views/partials/head.php')) ?>
 <?= style($style) ?>
 
-<main>
+<main class="home">
     <div class="left-panel">
         <?php require base_path('views/partials/nav.php') ?>
     </div>
-    <div class="content">
-        <h1>Admin Page</h1>
-        <p>Welcome, Admin!</p>
-        <?php require base_path('views/partials/logout.php') ?>
+    <div class="primary-screen">
+        <?php require base_path('views/partials/feed.php') ?>
     </div>
-</main
+    <div class="secondary-screen">
+        
+    </div>
+</main>
 
+<?= script('feed') ?>
 <?php require base_path('views/partials/foot.php') ?>
 

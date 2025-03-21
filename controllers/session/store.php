@@ -49,11 +49,8 @@ if(!empty($errors)) {
     ]);
 }
 
-login([
-    'id' => $user['id'],
-    'email' => $user['email'],
-    'role' => $user['role']
-]);
+unset($user['password']);
+login($user);
 
 header('Location: /');
 exit();

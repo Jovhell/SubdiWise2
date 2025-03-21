@@ -29,4 +29,8 @@ class Database {
     public function fetch() {
         return $this->statement->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function lastInsertedId() {
+        return $this->connection->lastInsertId();
+    }
 }
