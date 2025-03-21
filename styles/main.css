@@ -392,6 +392,12 @@ main {
                         svg {
                             height: 1rem;
                         }
+
+                        &.filled {
+                            svg * {
+                                fill: var(--secondary-color);
+                            }
+                        }
                     }
                 }
             }

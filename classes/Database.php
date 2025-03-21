@@ -22,8 +22,8 @@ class Database {
         return $this;
     }
 
-    public function fetchAll() {
-        return $this->statement->fetchAll(PDO::FETCH_ASSOC);
+    public function fetchAll($option = PDO::FETCH_ASSOC) {
+        return $this->statement->fetchAll($option);
     }
 
     public function fetch() {

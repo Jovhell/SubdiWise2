@@ -70,10 +70,15 @@
                 </div>
             </div>
             <div class="datas">
-                <div class="data">
-                    <?php require('assets/Heart_Icon.svg') ?>
-                    <?php echo $post['likes_count'] > 0 ? $post['likes_count'] : '' ?>
-                </div>
+                <form action="/likepost" method="POST">
+                    <input type="hidden" name="post_id" value="<?= $post['post_id'] ?>">
+                    <input type="hidden" name="isDislike" value="<?= in_array($post['post_id'], $liked_posts) ?>">
+                    <button type="submit" id="submit_<?= $post['post_id']?>" style="display:none"></button>
+                    <label for="submit_<?= $post['post_id']?>" class="data <?= in_array($post['post_id'], $liked_posts) ? 'filled' : '' ?>">
+                        <?php require('assets/Heart_Icon.svg') ?>
+                        <?php echo $post['likes_count'] > 0 ? $post['likes_count'] : '' ?>
+                    </label>
+                </form>
                 <div class="data">
                     <?php require('assets/Comment_Icon.svg') ?>
                     <?php echo $post['comments_count'] > 0 ? $post['likes_count'] : '' ?>
