@@ -3,6 +3,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const selected = document.getElementById("selected-privacy");
     const options = document.querySelector(".dropdown-options");
     const hiddenInput = document.getElementById("privacy");
+    const postMenus = document.querySelectorAll(".post-menu")
+    const postMeatBalls = document.querySelectorAll('.meatball')
+    const editPostModals = document.querySelectorAll('.edit-post-modal')
+
+    postMeatBalls.forEach((meatball, i) => {
+        meatball.addEventListener('click', (e) => {
+            e.stopPropagation()
+            postMenus.forEach(menu => {
+                if(menu == postMenus[i]) {
+                    menu.classList.toggle('show')
+                } else {
+                    menu.classList.remove('show')
+                }
+            })
+        })
+    })
 
     // Toggle dropdown options
     selected.addEventListener("click", function () {
@@ -25,5 +41,30 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!dropdown.contains(event.target)) {
             options.style.display = "none";
         }
+
+        editPostModals.forEach((modal, i) => {
+            if(!modal.contains(event.target)) {
+                modal.classList.remove('show')
+            }
+        })
+
+        postMenus.forEach((menu, i) => {
+            if(!menu.contains(event.target)) {
+                menu.classList.remove('show')
+                return
+            }
+            
+            const edit = menu.querySelector('.edit')
+            const cancel = editPostModals[i].querySelector('.modal-cancel')
+
+            if(event.target == edit) {
+                editPostModals[i].classList.add('show')
+                menu.classList.remove('show')
+            }
+
+            cancel.addEventListener('click', () => {
+                editPostModals[i].classList.remove('show')
+            })
+        })
     });
 });

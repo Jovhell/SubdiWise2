@@ -17,3 +17,41 @@
     --red-soft: #F0D1D1;
     --pale-green: #8A9985;
 }
+
+.modal {
+    padding: 0.5rem 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: var(--white);
+    z-index: 20;
+    transform: translate(-50%, -50%);
+    width: min(500px, 95vw);
+    border-radius: 0.5rem;
+    display: none;
+
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        position: relative;
+
+        .modal-cancel {
+            cursor: pointer;
+            color: var(--secondary-color);
+        }
+
+        .modal-title {
+            font-size: 1.1rem;
+            font-weight: 800;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    .modal-content {
+        padding: 0.5rem 1rem;
+    }
+}

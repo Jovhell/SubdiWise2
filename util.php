@@ -102,3 +102,7 @@ function timeAgo($datetime) {
     
     return "just now";
 }
+
+function profile_pic($filename) {
+    return $filename ? 'uploads/'.$filename : 'assets/default_display_picture.png';
+}

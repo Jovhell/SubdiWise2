@@ -15,11 +15,11 @@
     
     <div class="profile">
         <div class="display-picture">
-            <img src="assets/DP.png" alt="">
+            <img src="<?= profile_pic($current_user['profile_picture']) ?>" alt="">
         </div>
         <div class="details">
-            <div class="display-name">Oishi Palomares</div>
-            <div class="role">Admin</div>
+            <div class="display-name"><?= $current_user['fname'] . ' ' . $current_user['lname'] ?></div>
+            <div class="role"><?= ucfirst($current_user['role']) ?></div>
         </div>
         <div class="menu">
             <?php require('assets/Ellipsis.svg') ?>
