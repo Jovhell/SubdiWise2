@@ -6,8 +6,13 @@
         <div class="name">SubdiWise</div>
     </a>
     <?php foreach ($navlinks as $link): ?>
-        <a href="<?= $link['url'] ?>" class="<?= str_starts_with($_SERVER['REQUEST_URI'], $link['url']) ? 'active-link' : '' ?>">
-            <?php require('assets/nav-icons/'. (str_starts_with($_SERVER['REQUEST_URI'], $link['url']) ? 'Active_' : '') . $link['text'] .'_Icon.svg') ?>
+        <a href="<?= $link['url'] ?>" class="<?= ($link['url'] === '/' && $_SERVER['REQUEST_URI'] === '/') || 
+            ($link['url'] !== '/' && str_starts_with($_SERVER['REQUEST_URI'], $link['url'])) 
+            ? 'active-link' 
+            : '' ?>"
+        >
+            <?php require('assets/nav-icons/'. (($link['url'] === '/' && $_SERVER['REQUEST_URI'] === '/') || 
+            ($link['url'] !== '/' && str_starts_with($_SERVER['REQUEST_URI'], $link['url']))  ? 'Active_' : '') . $link['text'] .'_Icon.svg') ?>
             <?= $link['text'] ?>
         </a>
     <?php endforeach; ?>
