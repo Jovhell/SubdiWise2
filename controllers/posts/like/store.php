@@ -2,6 +2,8 @@
 
 $db = new Database();
 
+header('Content-Type: application/json');
+
 $user_id = $_SESSION['user']['id'];
 $post_id = $_POST['post_id'];
 $isDislike = $_POST['isDislike'];
@@ -14,6 +16,7 @@ if($isDislike) {
     $db->query("UPDATE posts SET likes_count = likes_count - 1 WHERE id = :post_id", [
         'post_id' => $post_id
     ]);
+    echo json_encode(['status' => 'disliked', 'isDisliked' => $isDislike]);
 } else {
     $db->query("INSERT INTO likes (user_id, post_id, time_created) VALUES (:user_id, :post_id, NOW())", [
         'user_id' => $user_id,
@@ -22,6 +25,5 @@ if($isDislike) {
     $db->query("UPDATE posts SET likes_count = likes_count + 1 WHERE id = :post_id", [
         'post_id' => $post_id
     ]);
+    echo json_encode(['status' => 'liked', 'isDisliked' => $isDislike]);
 }
-
-header("location:/");

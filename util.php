@@ -11,6 +11,11 @@ function base_path($path = "") {
     return __DIR__ . '/' . $path;
 }
 
+function routeParam($key) {
+    global $routeParams;
+    return $routeParams[$key] ?? null;
+}
+
 function view($path = "", $data = []) {
     extract($data);
     require(base_path('views/' . $path));
@@ -104,5 +109,5 @@ function timeAgo($datetime) {
 }
 
 function profile_pic($filename) {
-    return $filename ? 'uploads/'.$filename : 'assets/default_display_picture.png';
+    return $filename ? '/uploads/'.$filename : '/assets/default_display_picture.png';
 }

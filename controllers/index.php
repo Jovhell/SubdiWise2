@@ -3,7 +3,7 @@
 $views = [
     'admin' => [
         'view' =>'pages/admin/index.php',
-        'style' => 'main',
+        'style' => 'home',
         'navlinks' => [
             ['url' => '/', 'text' => 'Home'],
             ['url' => '/dashboard', 'text' => 'Dashboard'],
@@ -13,7 +13,7 @@ $views = [
     ],
     'user' => [
         'view' =>'pages/user/index.php',
-        'style' => 'main'
+        'style' => 'home'
     ],
     'default' => [
         'view' =>'pages/landing/index.php',

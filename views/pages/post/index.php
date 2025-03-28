@@ -1,49 +1,7 @@
-<div class="header">
-    <h2>Feed</h2>
-    <a href="?feed=following">Following</a>
-    <a class="active" href="/">Recents</a>
-</div>
-<form action="/post" method="POST" enctype="multipart/form-data">
-    <div class="create-post">
-        <div class="textarea">
-            <a href="/" class="display-picture">
-                <img src="<?= profile_pic($current_user['profile_picture']) ?>" alt="Profile">
-            </a>
-            <textarea name="post-content" id="post-content" placeholder="Share news, updates, or events..." required></textarea>
-            <?php require('assets/Emoji_Icon.svg') ?>
-        </div>
-        <div class="attachments" id="attachments"></div>
-        <div class="options">
-            <label class="option">
-                <img src="assets/File_Icon.svg" alt="File"> File
-                <input type="file" name="file[]" id="file" hidden multiple>
-            </label>
+<?= partial('head', ['title' => $title]) ?>
+<?= style($style) ?>
 
-            <label class="option">
-                <img src="assets/Image_Icon.svg" alt="Image"> Image
-                <input type="file" name="image[]" id="image" accept="image/*" hidden multiple>
-            </label>
-
-            <div class="custom-dropdown">
-                <div class="dropdown-selected option" id="selected-privacy" data-value="public">
-                    <img id="privacy-icon" src="assets/Public_Icon.svg" alt="">
-                    <span>Public</span>
-                    <img class="arrow" src="assets/Dropdown_Icon.svg" alt="▼">
-                </div>
-                <ul class="dropdown-options">
-                    <li data-value="public">Public</li>
-                    <li data-value="private">Private</li>
-                </ul>
-                <input type="hidden" name="privacy" id="privacy" value="public">
-            </div>
-
-            <!-- Post Button -->
-            <button type="submit" class="post-button">Post</button>
-        </div>
-    </div>
-</form>
-
-<?php foreach ($posts as $post): ?>
+<div class="post-container">
     <div class="modal-overlay"></div>
     <div class="edit-post-modal modal">
         <div class="modal-header">
@@ -70,16 +28,16 @@
             <?php if($post['user_id'] == $current_user['id']): ?>
                 <div class="post-option edit">Edit</div>
             <?php endif ?>
-
+    
             <hr class="separator"></hr>
-
+    
             <div class="post-option save">Save Post</div>
             <div class="post-option pin">Pin to profile</div>
             <div class="post-option hide">Hide like and share counts</div>
             <div class="post-option feature">Add to featured</div>
-
+    
             <hr class="separator"></hr>
-
+    
             <?php if($post['user_id'] == $current_user['id']): ?>
                 <div class="post-option delete">
                     <form action="/deletepost" method="POST">
@@ -89,10 +47,10 @@
                     </form>
                 </div>
             <?php endif ?>
-
+    
             <hr class="separator"></hr>
-
-            <div class="post-option copy" onClick="navigator.clipboard.writeText(`${window.location.origin}/<?= $post['user_id'] . "/post/" . $post['post_id']?>`)">Copy link</div>
+    
+            <div class="post-option copy" onClick="navigator.clipboard.writeText(`${window.location.origin}/<?= $post['user_id'] . "/post/" . $post['user_id']?>`)">Copy link</div>
         </div>
         <div class="display-picture">
             <img src="<?= profile_pic($post['profile_picture']) ?>" alt="">
@@ -146,4 +104,7 @@
             </div>
         </div>
     </div>
-<?php endforeach; ?>
+</div>
+
+<?= script('post')?>
+<?= partial('foot') ?>
